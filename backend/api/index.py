@@ -3,4 +3,7 @@ import os
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from main import app
+from main import app  # noqa: F401
+
+from mangum import Mangum
+handler = Mangum(app, lifespan="off")
